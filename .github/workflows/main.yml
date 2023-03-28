@@ -35,5 +35,5 @@ jobs:
         host: ${{ env.SERVER_HOST }}
         username: ${{ env.SERVER_USER }}
         password: ${{ env.SERVER_PASSWORD }}
-        remoteDir: /ktor/ktorserver/
+        remoteDir: /home/github_action/
         localDir: build/distributions/
