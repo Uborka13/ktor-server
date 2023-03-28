@@ -21,7 +21,7 @@ jobs:
       uses: actions/setup-java@v2.5.1
       with:
         java-version: '11'
-        distribution: corretto
+        distribution: 'corretto'
 
     - name: Build server
       run: ./gradlew build
