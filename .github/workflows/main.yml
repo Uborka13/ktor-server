@@ -30,11 +30,12 @@ jobs:
       run: gradle build
 
     - name: Deploy server
-      uses: SamKirkland/FTP-Deploy-Action@3.0.0
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ env.SERVER_HOST }}
         username: ${{ env.SERVER_USER }}
         password: ${{ env.SERVER_PASSWORD }}
+        port: 22
+        protocol: ftp
         server-dir: /ktor/ktorserver/
         local-dir: build/distributions/
-        args: --parallel=10
