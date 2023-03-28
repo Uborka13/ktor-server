@@ -31,6 +31,6 @@ jobs:
         server: ${{ env.SERVER_HOST }}
         username: ${{ env.SERVER_USER }}
         password: ${{ env.SERVER_PASSWORD }}
-        server-dir: /path/to/server
+        server-dir: /ktor/ktorserver/
         local-dir: build/distributions/
         args: --parallel=10
