@@ -29,11 +29,12 @@ jobs:
     - name: Build server
       run: gradle build
 
-    - name: SFTP uploader
-      uses: wangyucode/sftp-upload-action@v2.0.2
+    - name: FTP/SFTP file deployer
+      uses: milanmk/actions-file-deployer@1.12
       with:
-        host: ${{ env.SERVER_HOST }}
-        username: ${{ env.SERVER_USER }}
-        password: ${{ env.SERVER_PASSWORD }}
-        remoteDir: /home/github_action/ktor/
-        localDir: build/distributions/
+        remote-host: ${{ env.SERVER_HOST }}
+        remote-user: ${{ env.SERVER_USER }}
+        remote-password: ${{ env.SERVER_PASSWORD }}
+        proxy: false
+        remote-path: /home/github_action/ktor/
+        local-path: build/distributions/
