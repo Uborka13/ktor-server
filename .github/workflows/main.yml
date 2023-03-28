@@ -29,11 +29,11 @@ jobs:
     - name: Build server
       run: gradle build
 
-    - name: SFTP Deploy
-      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+    - name: SFTP uploader
+      uses: wangyucode/sftp-upload-action@v2.0.2
       with:
-        server: ${{ env.SERVER_HOST }}
+        host: ${{ env.SERVER_HOST }}
         username: ${{ env.SERVER_USER }}
         password: ${{ env.SERVER_PASSWORD }}
-        remote_path: /ktor/ktorserver/
-        local_path: build/distributions/
+        remoteDir: /ktor/ktorserver/
+        localDir: build/distributions/
