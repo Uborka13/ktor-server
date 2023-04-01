@@ -42,11 +42,5 @@ jobs:
     - name: Adding Known Hosts
       run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
       
-    - name: SFTP Deploy
-      uses: SamKirkland/web-deploy@v1
-      with:
-        remote-user: ${{ env.SERVER_USER }}
-        target-server: ${{ env.SERVER_HOST }}
-        private-ssh-key: ${{ env.SERVER_SSH }}
-        source-path: build/distributions/
-        destination-path: /home/github_action/ktor/
+    - name: Deploy with rsync
+      run: rsync -avz build/distributions/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/github_action/ktor/
