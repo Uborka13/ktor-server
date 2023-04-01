@@ -30,13 +30,14 @@ jobs:
 
     - name: Build server
       run: gradle build
-
-    - name: FTP/SFTP file deployer
-      uses: milanmk/actions-file-deployer@1.12
+      
+    - name: SFTP Deploy
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
       with:
-        remote-host: ${{ env.SERVER_HOST }}
-        remote-user: ${{ env.SERVER_USER }}
-        remote-password: ${{ env.SERVER_PASSWORD }}
-        proxy: false
-        remote-path: /home/github_action/ktor/
-        local-path: build/distributions/
+        username: ${{ env.SERVER_USER }}
+        server: ${{ env.SERVER_HOST }}
+        ssh_private_key: no
+        local_path: build/distributions/
+        remote_path: /home/github_action/ktor/
+#        sftp_only: # optional
+        password: ${{ env.SERVER_PASSWORD }}
