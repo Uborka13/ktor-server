@@ -33,11 +33,10 @@ jobs:
       run: gradle build
       
     - name: SFTP Deploy
-      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      uses: SamKirkland/web-deploy@v1
       with:
-        username: ${{ env.SERVER_USER }}
-        password: ${{ env.SERVER_PASSWORD }}
-        server: ${{ env.SERVER_HOST }}
-        ssh_private_key: ${{ env.SERVER_SSH }}
-        local_path: build/distributions/
-        remote_path: /home/github_action/ktor/
+        remote-user: ${{ env.SERVER_USER }}
+        target-server: ${{ env.SERVER_HOST }}
+        private-ssh-key: ${{ env.SERVER_SSH }}
+        source-path: build/distributions/
+        destination-path: /home/github_action/ktor/
