@@ -9,6 +9,7 @@ env:
   SERVER_HOST: ${{ secrets.SERVER_HOST }}
   SERVER_USER: ${{ secrets.SERVER_USER }}
   SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+  SERVER_SSH: ${{ secrets.SSH_PRIVATE_KEY }}
 
 jobs:
   build-and-deploy:
