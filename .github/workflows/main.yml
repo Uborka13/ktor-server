@@ -43,4 +43,4 @@ jobs:
       run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
       
     - name: Deploy with rsync
-      run: rsync -avz build/distributions/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/github_action/ktor/
+      run: rsync -avz -e "ssh -p ${{ secrets.SERVER_SSH_PORT }}" build/distributions/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/github_action/ktor/
