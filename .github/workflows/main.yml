@@ -33,7 +33,7 @@ jobs:
     - name: Setup SSH
       uses: kielabokkie/ssh-key-and-known-hosts-action@v1.3.5
       with:
-        ssh-private-key:: ${{ env.SERVER_SSH }}
+        ssh-private-key: ${{ env.SERVER_SSH }}
         ssh-host: ${{ env.SERVER_HOST }}
 
     - name: web deploy anything
