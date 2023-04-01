@@ -36,9 +36,8 @@ jobs:
       uses: wlixcc/SFTP-Deploy-Action@v1.2.4
       with:
         username: ${{ env.SERVER_USER }}
+        password: ${{ env.SERVER_PASSWORD }}
         server: ${{ env.SERVER_HOST }}
-        ssh_private_key: no
+        ssh_private_key: ${{ env.SERVER_SSH }}
         local_path: build/distributions/
         remote_path: /home/github_action/ktor/
-#        sftp_only: # optional
-        password: ${{ env.SERVER_PASSWORD }}
